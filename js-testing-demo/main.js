@@ -30,9 +30,10 @@ $(function() {
     }
     
     function runTests() {
-        $('#test-output').empty();
+        $('#test-output').html('<span class="loading">Loading...</span>');
         
         loadFrame().then(function() {
+            $('#test-output').empty();
             $jsFrame[0].contentWindow.jasmine.getEnv().execute();
         });
     }
