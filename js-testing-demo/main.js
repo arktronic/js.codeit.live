@@ -16,8 +16,7 @@ $(function() {
         frameDoc.write('<script type="text/javascript" src="jasmine-2.3.4/jasmine.js"></script>');
         frameDoc.write('<script type="text/javascript" src="jasmine-reporter.js"></script>');
         frameDoc.write('<script type="text/javascript" src="jasmine-boot.js"></script>');
-        frameDoc.write('<script type="text/javascript">' + cmJsCode.getValue() + '</script>');
-        frameDoc.write('<script type="text/javascript">' + cmTestCode.getValue() + '</script>');
+        frameDoc.write('<script type="text/javascript">' + cmJsCode.getValue() + '\r\n' + cmTestCode.getValue() + '</script>');
         frameDoc.close();
         
         console.log(cmTestCode.getValue());
@@ -56,14 +55,21 @@ $(function() {
             });
         }
     }
-        
-    cmJsCode = CodeMirror.fromTextArea(document.getElementById('js-code'), {
-        lineNumbers: true
-    });
-        
+    
+    function updateTestCodeLineNumbers() {
+        var jsLines = cmJsCode.lineCount();
+        cmTestCode.setOption('firstLineNumber', jsLines + 1);
+    }
+    
     cmTestCode = CodeMirror.fromTextArea(document.getElementById('test-code'), {
         lineNumbers: true
     });
+    
+    cmJsCode = CodeMirror.fromTextArea(document.getElementById('js-code'), {
+        lineNumbers: true
+    });
+    
+    cmJsCode.on('change', updateTestCodeLineNumbers);
     
     loadCode();
 
