@@ -33,7 +33,7 @@ $(function() {
         $('#test-output').html('<span class="loading">Loading...</span>');
         
         loadFrame().then(function() {
-            $('#test-output').empty();
+            $('#test-output .loading').hide();
             $jsFrame[0].contentWindow.jasmine.getEnv().execute();
         });
     }
@@ -65,7 +65,8 @@ $(function() {
     }
     
     cmTestCode = CodeMirror.fromTextArea(document.getElementById('test-code'), {
-        lineNumbers: true
+        lineNumbers: true,
+        firstLineNumber: 2
     });
     
     cmJsCode = CodeMirror.fromTextArea(document.getElementById('js-code'), {
