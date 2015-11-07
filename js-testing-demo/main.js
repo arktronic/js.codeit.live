@@ -47,12 +47,14 @@ $(function() {
     function loadCode() {
         if(window.location.search != "") {
             var baseName = window.location.search.substr(1).split('&')[0].split('#')[0];
-            retrieveFile('demo-code/' + baseName + '.js').done(function(data) {
-                cmJsCode.setValue(data);
-            });
-            retrieveFile('demo-code/' + baseName + '.test.js').done(function(data) {
-                cmTestCode.setValue(data);
-            });
+            if(baseName.match(/^[\w.]+$/) != null) {
+                retrieveFile('demo-code/' + baseName + '.js').done(function(data) {
+                    cmJsCode.setValue(data);
+                });
+                retrieveFile('demo-code/' + baseName + '.test.js').done(function(data) {
+                    cmTestCode.setValue(data);
+                });
+            }
         }
     }
     
