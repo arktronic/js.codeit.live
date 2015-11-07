@@ -29,18 +29,10 @@ section {
     padding: 8px;
 }
 
-.input-container span {
+.input-container .section-title {
     color: #666;
     display: block;
-}
-
-.input-container .js-input {
-    border: 1px solid #333;
-    min-height: 300px;
-    max-height: 300px;
-    overflow: auto;
-    font-family: monospace;
-    padding: 2px;
+    margin-bottom: 2px;
 }
 
 .actions {
@@ -53,6 +45,7 @@ section {
     color: #fff;
     background-color: #070;
     text-decoration: none;
+    text-transform: uppercase;
     border: 1px solid #000;
 }
 
@@ -68,16 +61,19 @@ section {
     margin: 8px;
 }
 
-.output-container span {
+.output-container .section-title {
     color: #666;
     display: block;
+    margin-bottom: 2px;
 }
 
 .output-container .test-output {
-    border: 1px solid #333;
+    border: 1px solid #999;
+    box-shadow: 0 0 2px #999;
     min-height: 300px;
     max-height: 300px;
     overflow: auto;
     font-family: monospace;
     padding: 2px;
+    white-space: pre-wrap;
 }

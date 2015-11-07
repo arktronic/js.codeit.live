@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>js.codeit.live JavaScript Testing Demo</title>
+    <link type="text/css" rel="stylesheet" href="CodeMirror-5.8.0/codemirror.css" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="CodeMirror-5.8.0/codemirror.js"></script>
+    <script type="text/javascript" src="CodeMirror-5.8.0/mode-javascript/javascript.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+    <header>
+        js.codeit.live: javascript testing demo
+    </header>
+    <section>
+        <div class="inputs">
+            <div class="input-container">
+                <span class="section-title">js code:</span>
+                <textarea class="js-input" id="js-code"></textarea>
+            </div>
+            <div class="input-container">
+                <span class="section-title">test code:</span>
+                <textarea class="js-input" id="test-code"></textarea>
+            </div>
+        </div>
+        <div class="actions">
+            <a href="#" id="run-button">Run test code</a>
+        </div>
+        <div class="output-container">
+            <span class="section-title">test output:</span>
+            <div class="test-output" id="test-output"></div>
+        </div>
+    </section>
+</body>
+</html>
