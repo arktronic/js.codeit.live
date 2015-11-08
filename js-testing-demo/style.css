@@ -19,14 +19,18 @@ section {
 }
 
 .inputs {
-    display: table;
+    display: block;
     width: 100%;
 }
 
 .inputs .input-container {
-    display: table-cell;
-    width: 50%;
+    display: inline-block;
+    width: calc(50% - 20px);
     padding: 8px;
+}
+
+.inputs .test-container {
+    float: right;
 }
 
 .input-container .section-title {
