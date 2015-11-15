@@ -81,3 +81,7 @@ section {
     padding: 2px;
     white-space: pre-wrap;
 }
+
+div.links {
+    margin: 8px;
+}
