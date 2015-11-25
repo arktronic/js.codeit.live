@@ -1,17 +1,17 @@
 describe('Relative Time Formatter', function() {
   var instance,
       currentDate = new Date(2015, 1, 1, 15, 30),
-      hourSpy,
-      daySpy;
+      hourFormatterStub,
+      dayFormatterStub;
 
   beforeEach(function() {
     jasmine.clock().install();
     jasmine.clock().mockDate(currentDate);
 
-    hourSpy = jasmine.createSpy();
-    daySpy = jasmine.createSpy();
+    hourFormatterStub = jasmine.createSpy();
+    dayFormatterStub = jasmine.createSpy();
 
-    instance = new RelativeTimeFormatter({ format: hourSpy }, { format: daySpy });
+    instance = new RelativeTimeFormatter({ format: hourFormatterStub }, { format: dayFormatterStub });
   });
 
   afterEach(function() {
@@ -26,12 +26,12 @@ describe('Relative Time Formatter', function() {
     var date = new Date(2015, 1, 1, 20, 59, 59),
         expectedValue = 'returned hour string';
 
-    hourSpy.and.returnValue(expectedValue);
+    hourFormatterStub.and.returnValue(expectedValue);
 
     var actualValue = instance.format(date);
 
-    expect(hourSpy.calls.count()).toEqual(1);
-    expect(hourSpy).toHaveBeenCalledWith(19799000);
+    expect(hourFormatterStub.calls.count()).toEqual(1);
+    expect(hourFormatterStub).toHaveBeenCalledWith(19799000);
     expect(actualValue).toEqual(expectedValue);
   });
 
@@ -39,12 +39,12 @@ describe('Relative Time Formatter', function() {
     var date = new Date(2015, 1, 1, 10, 15),
         expectedValue = 'returned hour string';
 
-    hourSpy.and.returnValue(expectedValue);
+    hourFormatterStub.and.returnValue(expectedValue);
 
     var actualValue = instance.format(date);
 
-    expect(hourSpy.calls.count()).toEqual(1);
-    expect(hourSpy).toHaveBeenCalledWith(-18900000);
+    expect(hourFormatterStub.calls.count()).toEqual(1);
+    expect(hourFormatterStub).toHaveBeenCalledWith(-18900000);
     expect(actualValue).toEqual(expectedValue);
   });
 
@@ -52,12 +52,12 @@ describe('Relative Time Formatter', function() {
     var date = new Date(2015, 1, 1, 23, 59, 59),
         expectedValue = 'returned day string';
 
-    daySpy.and.returnValue(expectedValue);
+    dayFormatterStub.and.returnValue(expectedValue);
 
     var actualValue = instance.format(date);
 
-    expect(daySpy.calls.count()).toEqual(1);
-    expect(daySpy).toHaveBeenCalledWith(30599000);
+    expect(dayFormatterStub.calls.count()).toEqual(1);
+    expect(dayFormatterStub).toHaveBeenCalledWith(30599000);
     expect(actualValue).toEqual(expectedValue);
   });
 
@@ -65,12 +65,12 @@ describe('Relative Time Formatter', function() {
     var date = new Date(2014, 12, 29),
         expectedValue = 'returned day string';
 
-    daySpy.and.returnValue(expectedValue);
+    dayFormatterStub.and.returnValue(expectedValue);
 
     var actualValue = instance.format(date);
 
-    expect(daySpy.calls.count()).toEqual(1);
-    expect(daySpy).toHaveBeenCalledWith(-315000000);
+    expect(dayFormatterStub.calls.count()).toEqual(1);
+    expect(dayFormatterStub).toHaveBeenCalledWith(-315000000);
     expect(actualValue).toEqual(expectedValue);
   });
 });
@@ -175,7 +175,7 @@ describe('Day Formatter', function() {
     expect(instance.format(currentDate, date)).toEqual('2 days ago');
   });
 
-  it('should format 2014-01-01T00:00:00 as "365 days ago"', function() {
+  it('should format a year in the past as "365 days ago"', function() {
     var date = new Date(2014, 0, 1);
     expect(instance.format(currentDate, date)).toEqual('365 days ago');
   });
