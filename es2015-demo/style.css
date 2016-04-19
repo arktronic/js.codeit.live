@@ -1,0 +1,95 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+header {
+    height: 33px;
+    background-color: #3e3;
+    padding-bottom: 4px;
+    margin: 0;
+    font-family: "Segoe UI Light", "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: lighter;
+    font-size: 18pt;
+    text-align: center;
+}
+
+section {
+    padding: 6px;
+    position: absolute;
+    height: calc(100% - 45px);
+    top: 33px;
+    width: calc(100% - 12px);
+}
+
+.code-container {
+    display: block;
+    height: 40%;
+}
+
+.code-container .section-title {
+    color: #666;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.actions {
+    text-align: center;
+    margin: 50px 0 0;
+}
+
+#run-button::after, #run-button::before {
+    content: " \25BE ";
+}
+
+.actions a {
+    padding: 6px;
+    color: #fff;
+    background-color: #070;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid #000;
+}
+
+.actions a:hover {
+    background-color: #090;
+}
+
+.actions a:active {
+    box-shadow: inset 0 0 2px black;
+}
+
+div.links {
+    margin: 40px 0 0;
+}
+
+@media (min-width: 800px) and (orientation: landscape) {
+    .code-container {
+        height: calc(100% - 65px);
+        width: calc(50% - 80px);
+        display: block;
+        float: left;
+    }
+    
+    .actions {
+        display: block;
+        height: calc(100% - 90px);
+        margin: 16px;
+        float: left;
+    }
+    
+    .actions a {
+        position: relative;
+        top: 50%;
+    }
+    
+    div.links {
+        clear: both;
+        float: left;
+    }
+    
+    #run-button::after, #run-button::before {
+        content: " \25B8 ";
+    }
+}
