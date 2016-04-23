@@ -12,8 +12,9 @@ if (something) {
     let b = 2;
 }
 console.log(b); // -> 1
+b = 3;
 // can't do this:
-//let b = 3;
+//let b = 4;
 
 // const is block-scope
 const c = 1;
@@ -22,3 +23,7 @@ if (something) {
 }
 // can't do this:
 //const c = 3;
+
+// const != immutable
+const people = [];
+people.push('a person');
